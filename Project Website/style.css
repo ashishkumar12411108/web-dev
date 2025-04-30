@@ -1,0 +1,107 @@
+/* Full page background */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('background.jpg') no-repeat center center/cover;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  width: 600px;
+  height: 400px;
+  perspective: 1200px;
+}
+
+/* Diary */
+.diary {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.book {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* Common page styling */
+.page {
+  width: 75%;
+  height: 75%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transition: transform 1s;
+}
+
+/* Front page */
+.front {
+  background: url('diary-cover.jpg') no-repeat center center/cover;
+  z-index: 2;
+  position: relative;
+}
+
+/* Create a New Moment Button */
+.front button {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #6EE7B7, #3B82F6);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(59,130,246,0.6);
+  transition: all 0.4s ease;
+}
+
+.front button:hover {
+  background: linear-gradient(135deg, #3B82F6, #9333EA);
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* Back page */
+.back {
+  background: rgb(205, 186, 120);
+  transform: rotateY(180deg);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Textarea */
+textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  font-size: 18px;
+  outline: none;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Flip Animation */
+.book.flipped .front {
+  transform: rotateY(-180deg);
+}
+
+.book.flipped .back {
+  transform: rotateY(0deg);
+}
